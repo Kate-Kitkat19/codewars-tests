@@ -47,52 +47,63 @@ console.log("hello");
 //   return parseInt(res);
 // }
 
-function findOutlier(integers) {
-  const oddOrEven = { 0: 0, 1: 0 };
-  for (let i = 0; i < integers.length; i++) {
-    const num = integers[i];
-    if (num % 2 !== 0) {
-      oddOrEven[1] = oddOrEven[1] += 1;
-    } else {
-      oddOrEven[0] = oddOrEven[0] += 1;
-    }
-  }
+// function findOutlier(integers) {
+//   const oddOrEven = { 0: 0, 1: 0 };
+//   for (let i = 0; i < integers.length; i++) {
+//     const num = integers[i];
+//     if (num % 2 !== 0) {
+//       oddOrEven[1] = oddOrEven[1] += 1;
+//     } else {
+//       oddOrEven[0] = oddOrEven[0] += 1;
+//     }
+//   }
 
-  let res = null;
-  let value = null;
+//   let res = null;
+//   let value = null;
 
-  for (const int in oddOrEven) {
-    if (oddOrEven[int] === 1) {
-      value = int;
+//   for (const int in oddOrEven) {
+//     if (oddOrEven[int] === 1) {
+//       value = int;
 
-      for (const number of integers) {
-        if (number % 2 === Number(value) || number % 2 === -Number(value)) {
-          res = number;
+//       for (const number of integers) {
+//         if (number % 2 === Number(value) || number % 2 === -Number(value)) {
+//           res = number;
 
-          return res;
-        }
-      }
-    }
-  }
-  return res;
+//           return res;
+//         }
+//       }
+//     }
+//   }
+//   return res;
+// }
+
+// function findOutlier(int) {
+//   var even = int.filter((a) => a % 2 == 0);
+//   var odd = int.filter((a) => a % 2 !== 0);
+//   return even.length == 1 ? even[0] : odd[0];
+// }
+
+// function isLeapYear(year) {
+//   if (year % 4 === 0) {
+//     if (year % 100 === 0) {
+//       if (year % 400 === 0) {
+//         return true;
+//       }
+//       return false;
+//     }
+//     return true;
+//   }
+//   return false;
+// }
+
+function squareDigits(num) {
+  const splittedArr = String(num).split("");
+  const res = splittedArr.map((number) => {
+    const n = Number(number);
+    return Math.pow(n, 2);
+  });
+
+  return Number(res.join(""));
 }
 
-function findOutlier(int) {
-  var even = int.filter((a) => a % 2 == 0);
-  var odd = int.filter((a) => a % 2 !== 0);
-  return even.length == 1 ? even[0] : odd[0];
-}
-
-function isLeapYear(year) {
-  if (year % 4 === 0) {
-    if (year % 100 === 0) {
-      if (year % 400 === 0) {
-        return true;
-      }
-      return false;
-    }
-    return true;
-  }
-  return false;
-}
-
+console.log(squareDigits(3212));
