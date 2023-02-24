@@ -96,14 +96,36 @@ console.log("hello");
 //   return false;
 // }
 
-function squareDigits(num) {
-  const splittedArr = String(num).split("");
-  const res = splittedArr.map((number) => {
-    const n = Number(number);
-    return Math.pow(n, 2);
-  });
+function checkeredBoard(dimension) {
+  const lightBox = "□";
+  const darkBox = "■";
+  // check if it`s odd or even
+  const even = dimension % 2 === 0;
 
-  return Number(res.join(""));
+  // count the total number of squares
+  const total = dimension * dimension;
+  console.log("checkeredBoard   total:", total);
+  // create an array of squares in zebra style
+  let arr = [];
+  for (let i = 0; i < total; i++) {
+    console.log(i);
+    if (even) {
+      i % 2 === 0 ? arr.push(darkBox) : arr.push(lightBox);
+    } else {
+      i % 2 === 0 ? arr.push(lightBox) : arr.push(darkBox);
+    }
+  }
+  console.log(arr);
+  
+  return `${arr.slice(0, dimension)}`
+  // create 1 string with the right quantity of squares
 }
 
-console.log(squareDigits(3212));
+checkeredBoard(2);
+console.log(
+  `■ □ ■ □ ■
+□ ■ □ ■ □
+■ □ ■ □ ■
+□ ■ □ ■ □
+■ □ ■ □ ■`
+);
